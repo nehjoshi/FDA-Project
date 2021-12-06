@@ -9,4 +9,3 @@ A basic Flask App is set up in the Jupyter Notebook provided, where we have deve
 ## Future Improvements
 The current dataset used in training the model is considerably old; it contains data from 2008 to 2018. In turn, the output values are biased towards the older values. In the future, we can aim to use a more modern, updated dataset to obtain better predictions.
 
-##
