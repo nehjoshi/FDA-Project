@@ -22,7 +22,7 @@ export default function Home() {
         console.log(spy);
         setLoading(true);
         const data = {spy, spyLag, sp500, nasdaq, dji, cac40, daxi, aord, hsi, nikkei};
-        axios.post('http://b05b-34-125-215-119.ngrok.io/', data)
+        axios.post('http://6160-35-185-78-10.ngrok.io/get_data', data)
             .then(res => {
                 setPrice(parseFloat(res.data).toFixed(2));
                 setLoading(false);

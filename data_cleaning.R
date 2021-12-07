@@ -1,0 +1,17 @@
+rm(list=ls())
+library(imputeTS)
+library(ggplot2)
+library(reshape2)
+library(dplyr)
+setwd("C:/Users/OS/Desktop/5th Semester/CSE3505 - Foundations of Data Analytics/Coursera-Financial_Analysis-master/Coursera-Financial_Analysis-master")
+raw_data <- read.csv("historicalData.csv")
+data <- subset(raw_data, select=-c(Date)) #Remove the date column
+dataFinal <- na_mean(data)  #Replace NA values with the mean in that column
+ggplot(dataFinal, aes(x=nasdaq,y=spy))+geom_point() 
+ggplot(dataFinal, aes(x=aord,y=spy))+geom_point() 
+correlation <- round(cor(dataFinal), 4)
+cmatrix <- round(cor(dataFinal), 4)
+cmatrix_melted <- melt(cmatrix)
+ggplot(cmatrix_melted, aes(x=Var1, y=Var2, fill=value)) + geom_tile()
+mlr = lm(Price~spy+spy_lag1+sp500+nasdaq+dji+cac40+aord+daxi+nikkei+hsi, dataFinal)
+summary(mlr)
