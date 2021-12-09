@@ -4,7 +4,6 @@ import Layout from './Layout'
 
 export default function Home() {
 
-
     const [spy, setSpy] = React.useState(null);
     const [spyLag, setSpyLag] = React.useState(null);
     const [sp500, setSp500] = React.useState(null);
